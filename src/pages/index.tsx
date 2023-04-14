@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Mermaid } from "@/components/mermaid";
+import SelectTemplate from "@/components/select-template";
+import { TemplateEnum } from "@/lib/prompt-by-template";
 
 const Index = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-
   const [input, setInput] = useState("");
+  const [selectedTemplate, setSelectedTemplate] = useState<string>(
+    TemplateEnum.FLOWCHART
+  );
 
   const name = input ? input.replace(/\s/g, "-").toLowerCase() : "";
 
@@ -20,6 +24,7 @@ const Index = () => {
     try {
       const res = await axios.post("/api/ask", {
         input,
+        selectedTemplate,
       });
 
       if (res.data.text) {
@@ -34,6 +39,8 @@ const Index = () => {
       setLoading(false);
     }
   };
+
+  console.log({ chart });
 
   return (
     <div className="flex justify-end items-center flex-col h-screen">
@@ -57,7 +64,7 @@ const Index = () => {
         )}
       </div>
 
-      <form onSubmit={handleFlow} className="form-control">
+      <form onSubmit={handleFlow} className="form-control flex">
         <div className="input-group">
           <input
             className="input input-lg input-bordered input-success w-96 "
@@ -74,6 +81,7 @@ const Index = () => {
             {error ? "Retry" : "Generate Flowchart"}
           </button>
         </div>
+        <SelectTemplate onChange={(e) => setSelectedTemplate(e.target.value)} />
       </form>
     </div>
   );

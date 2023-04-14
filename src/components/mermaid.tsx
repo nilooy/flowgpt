@@ -67,11 +67,8 @@ export const Mermaid: FC<IMermaid> = ({ chart, name }) => {
       </div>
 
       <TransformWrapper>
-        <TransformComponent
-          contentClass="h-full w-full"
-          wrapperClass="h-full w-full"
-        >
-          <div className="mermaid w-full">{chart}</div>{" "}
+        <TransformComponent contentClass="w-full" wrapperClass="w-full h-full">
+          <div className="mermaid w-full mb-100">{chart}</div>
         </TransformComponent>{" "}
       </TransformWrapper>
     </div>
