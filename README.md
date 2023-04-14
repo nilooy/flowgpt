@@ -16,6 +16,8 @@
 
 1. Clone the Repo
 
+2. rename the `env.template` to `.env.local` and OPENAI_API_KEY
+
 2. `cd` into the folder
 ```sh
 cd flowgpt
