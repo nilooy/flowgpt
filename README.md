@@ -3,7 +3,14 @@
         </br></br>
     <h4 color="green">FlowGPT is a tool to generate flowchart with ai (gpt-3.5)</h4>
     <p>Made with ❤️ by <a target="_blank" href="https://twitter.com/nil_ooy">@nilooy 🧑‍💻</a></p>
+    
+    
+   
 </div>
+
+
+![Copy of update flowgpt - 14 Apr 23](https://user-images.githubusercontent.com/32486682/232072495-9445eda4-f134-47e0-b2c1-2c359581e020.gif)
+
 
 ## Built With
 
@@ -33,6 +40,11 @@ yarn
 yarn dev
 ```
 
+5. Open browser and go to http://localhost:3000
+
+
+## Contribution
+it's a pretty new tool, Lots of room for improvement, feel free to contribute.
 
 ## Roadmap
 
