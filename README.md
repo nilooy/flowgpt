@@ -19,6 +19,10 @@
 - Mermaid (https://github.com/mermaid-js/mermaid)
 - DaisyUI
 
+## Requirements
+1. Node Version >= 18
+2. OpenAI API Key
+
 ## Installation
 
 1. Clone the Repo
