@@ -2,7 +2,7 @@
     <img src="public/brand/logo_text.png" alt="Superkey logo" />
         </br></br>
     <h4 color="green">FlowGPT is a tool to generate flowchart with ai (gpt-3.5)</h4>
-    <p>Made with ❤️ <a target="_blank" href="https://twitter.com/nil_ooy">@nilooy 🧑‍💻</a></p>
+    <p>Made with ❤️ by <a target="_blank" href="https://twitter.com/nil_ooy">@nilooy 🧑‍💻</a></p>
 </div>
 
 ## Built With
@@ -30,6 +30,14 @@ yarn
 ```sh
 yarn dev
 ```
+
+
+## Roadmap
+
+- Automatic syntax error detection and retry with history
+- OpenAI API KEY modal to insert from the UI
+- Save flowcharts on localStorage
+- Animated Flowchart Generation (exportable as video)
 
 
 
