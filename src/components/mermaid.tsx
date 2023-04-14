@@ -32,8 +32,6 @@ export const Mermaid: FC<IMermaid> = ({ chart, name }) => {
 
     const svgUrl = URL.createObjectURL(svgBlob);
 
-    console.log({ svgUrl });
-
     const downloadLink = document.createElement("a");
     downloadLink.href = svgUrl;
     downloadLink.download = `${name}.svg`;
@@ -49,7 +47,7 @@ export const Mermaid: FC<IMermaid> = ({ chart, name }) => {
 
   return (
     <div className="relative w-full flex justify-center">
-      <div className="absolute right-1 m-2 z-50 dropdown  dropdown-end">
+      <div className="absolute right-1 bottom-1 m-2 z-50 dropdown dropdown-end">
         <label tabIndex={0} className="btn btn-success m-1">
           Export
         </label>

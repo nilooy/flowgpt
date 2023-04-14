@@ -24,7 +24,6 @@ export const generate = async ({ input, selectedTemplate }) => {
       `./syntax/${selectedTemplate.toLowerCase()}.md`
     );
 
-    console.log({ input, ss: syntaxDoc.default });
     const res = await chain.call({
       template: selectedTemplate,
       input,

@@ -4,6 +4,7 @@ import { Mermaid } from "@/components/mermaid";
 import SelectTemplate from "@/components/select-template";
 import { TemplateEnum } from "@/lib/prompt-by-template";
 import Image from "next/image";
+import Nav from "@/components/nav";
 
 const Index = () => {
   const [error, setError] = useState("");
@@ -41,14 +42,9 @@ const Index = () => {
     }
   };
 
-  console.log({ chart });
-
   return (
     <div className="flex justify-end items-center flex-col h-screen">
-      <div className="fixed flex left-2 top-2 z-50">
-        <Image src="/brand/logo_text.png" width={150} height={30} />
-        <div className="badge badge-sm self-end">alpha</div>
-      </div>
+      <Nav />
 
       <div className="flex-1 flex justify-center border-2 border-dashed w-full mb-2 overflow-scroll">
         {loading ? (
