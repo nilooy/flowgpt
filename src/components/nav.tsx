@@ -13,7 +13,12 @@ const Nav = () => {
             rel="noreferrer"
             target="_blank"
           >
-            <Image src="/brand/logo_text.png" width={100} height={20} />
+            <Image
+              src="/brand/logo_text.png"
+              width={100}
+              height={20}
+              alt="Flowgpt Logo"
+            />
             <div className="badge badge-sm self-end">alpha</div>
           </a>
         </div>
