@@ -3,6 +3,7 @@ import axios from "axios";
 import { Mermaid } from "@/components/mermaid";
 import SelectTemplate from "@/components/select-template";
 import { TemplateEnum } from "@/lib/prompt-by-template";
+import Image from "next/image";
 
 const Index = () => {
   const [error, setError] = useState("");
@@ -44,6 +45,11 @@ const Index = () => {
 
   return (
     <div className="flex justify-end items-center flex-col h-screen">
+      <div className="fixed flex left-2 top-2 z-50">
+        <Image src="/brand/logo_text.png" width={150} height={30} />
+        <div className="badge badge-sm self-end">alpha</div>
+      </div>
+
       <div className="flex-1 flex justify-center border-2 border-dashed w-full mb-2 overflow-scroll">
         {loading ? (
           <div className="flex flex-col justify-center animate-pulse">
@@ -64,25 +70,29 @@ const Index = () => {
         )}
       </div>
 
-      <form onSubmit={handleFlow} className="form-control flex">
-        <div className="input-group">
-          <input
-            className="input input-lg input-bordered input-success w-96 "
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            type="text"
-            placeholder="What the flowchart is about"
-            autoFocus="on"
+      <div className="flex">
+        <form onSubmit={handleFlow} className="form-control">
+          <div className="input-group">
+            <input
+              className="input input-lg input-bordered input-success w-96 "
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              type="text"
+              placeholder="What the flowchart is about"
+              autoFocus="on"
+            />
+            <button
+              type="submit"
+              className={`btn btn-grad btn-lg ${loading ? "loading" : ""}`}
+            >
+              {error ? "Retry" : "Generate Flowchart"}
+            </button>
+          </div>
+          <SelectTemplate
+            onChange={(e) => setSelectedTemplate(e.target.value)}
           />
-          <button
-            type="submit"
-            className={`btn btn-grad btn-lg ${loading ? "loading" : ""}`}
-          >
-            {error ? "Retry" : "Generate Flowchart"}
-          </button>
-        </div>
-        <SelectTemplate onChange={(e) => setSelectedTemplate(e.target.value)} />
-      </form>
+        </form>
+      </div>
     </div>
   );
 };

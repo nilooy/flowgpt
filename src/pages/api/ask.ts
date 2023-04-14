@@ -21,26 +21,14 @@ export default async function handler(
   // NOTE: OpenAI recommends replacing newlines with spaces for best results
 
   try {
-    // const ans = await chat.call([
-    //   new SystemChatMessage(
-    //     sanitizeText(
-    //       `You are a flowchart maker with markdown in mermaid syntax`
-    //     )
-    //   ),
-    //   new HumanChatMessage(
-    //     sanitizeText(promptByTemplate[selectedTemplate](input))
-    //   ),
-    // ]);
-
     const ans = await generate({ input, selectedTemplate });
 
+    // TODO: implement langchain parsed answer
     const text = ans.text
       .replaceAll("```", "")
       .replaceAll(`"`, `'`)
       .replaceAll(`end[End]`, `ends[End]`)
       .replace("mermaid", "");
-
-    // console.log(ans);
 
     return res.status(200).json({ text });
   } catch (e) {
