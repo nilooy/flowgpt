@@ -1,17 +1,15 @@
-import { OpenAI } from "langchain/llms";
-import { BaseChain, LLMChain, loadQAMapReduceChain } from "langchain/chains";
-import { Document } from "langchain/document";
-import { TextLoader } from "langchain/document_loaders";
+import { OpenAI, OpenAIChat } from "langchain/llms/openai";
+import { LLMChain } from "langchain/chains";
 
-import { MarkdownTextSplitter } from "langchain/text_splitter";
-import { PromptTemplate } from "langchain";
+import { PromptTemplate } from "langchain/prompts";
 
+// @ts-ignore
 export const generate = async ({ input, selectedTemplate }) => {
   try {
-    const model = new OpenAI({ temperature: 0.9 });
+    const model = new OpenAIChat({ temperature: 0.4, maxTokens: 1024, modelName: "gpt-3.5-turbo", verbose: true});
 
     const template =
-      "{syntax} - {instructions} learn from syntax above and write {template} in mermaid syntax about {input}?";
+      "{syntax} - {instructions} learn from syntax above and write {template} in mermaid syntax about {input}? Output format: ```mermaid\n CODE \n```";
     const prompt = new PromptTemplate({
       template,
       inputVariables: ["template", "input", "syntax", "instructions"],
@@ -38,7 +36,6 @@ export const generate = async ({ input, selectedTemplate }) => {
 
     return res;
   } catch (e) {
-    console.log("openai:debug", e?.response?.data);
     throw e;
   }
 };

@@ -3,7 +3,6 @@ import axios from "axios";
 import { Mermaid } from "@/components/mermaid";
 import SelectTemplate from "@/components/select-template";
 import { TemplateEnum } from "@/lib/prompt-by-template";
-import Image from "next/image";
 import Nav from "@/components/nav";
 
 const Index = () => {
